@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  color: #2B2B28;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #F7F5F0;
+}
+
+/* One subtle, deliberate use of a woven-pattern motif — section dividers
+   only, per the brief's "use these elements subtly" instruction. */
+.woven-divider {
+  height: 6px;
+  background-image: repeating-linear-gradient(
+    135deg, #8A6A45 0px, #8A6A45 2px, transparent 2px, transparent 10px
+  );
+  opacity: 0.35;
+}
+
+@keyframes mic-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(34,52,92,0.25); }
+  70% { box-shadow: 0 0 0 16px rgba(34,52,92,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,52,92,0); }
+}
+.mic-listening { animation: mic-pulse 1.6s ease-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mic-listening { animation: none; }
+}
+
+/* High contrast mode — only active when explicitly toggled in Settings.
+   Default appearance is completely unchanged otherwise. */
+.high-contrast {
+  --tw-text-opacity: 1;
+}
+.high-contrast body {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+}
+.high-contrast .bg-card,
+.high-contrast .bg-ivory {
+  background-color: #FFFFFF !important;
+}
+.high-contrast .border-border {
+  border-color: #000000 !important;
+}
+.high-contrast .text-ink\/40,
+.high-contrast .text-ink\/50,
+.high-contrast .text-ink\/60,
+.high-contrast .text-ink\/70 {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+.high-contrast .bg-navy {
+  background-color: #000000 !important;
+}
